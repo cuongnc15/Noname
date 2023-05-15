@@ -19,8 +19,26 @@
     border-radius: 50%;
     color: rgb(251, 251, 251);
     background-color: rgb(229, 11, 11);
+    font-weight: bold;
 }
 
 .loginContainer {
     padding: 20px 20px;
+}
+
+.loginTitle {
+    text-align: center;
+    font-size: 26px;
+    color: rgb(200, 54, 105);
+    margin-top: 0px;
+}
+
+.loginNote {
+    margin-top: 5px;
+    color: red;
+}
+
+.loginLabel{
+    display: inline-block;
+    margin-bottom: 5px;
 }
