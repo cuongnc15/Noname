@@ -1,5 +1,5 @@
 import { CloseOutlined, UserOutlined } from "@ant-design/icons"
-import { Input, Space } from 'antd';
+import { Input} from 'antd';
 import styles from './login.module.css'
 import { useState } from "react";
 
@@ -57,14 +57,14 @@ const Login = () => {
             <div>
                 <label className={styles.loginLabel} htmlFor="">Password</label>
                 <br />
-                <Space direction="horizontal">
+                
                 <Input.Password
                     placeholder="Enter password"
                     value={password}
                     onChange={(event) => setPassword(event.target.value)}
                     visibilityToggle={{ visible: passwordVisible, onVisibleChange: setPasswordVisible }}
                 />
-                </Space>
+                
                 <p className={styles.loginNote}>{err.passwordInput}</p> 
            </div>
            <div>
