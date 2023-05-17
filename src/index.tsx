@@ -9,19 +9,31 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import Contact from './component/Contact/Contact';
+import ContactPage from './page/ContactPage';
+import AboutPage from './page/AboutPage';
+
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
 const router = createBrowserRouter([
+  // {
+  //   path: "/",
+  //   element: <div>Hello world!</div>,
+  // },
   {
     path: "/",
-    element: <div>Hello world!</div>,
+    element: <App/>,
   },
   {
-    path: "/app",
-    element: <App/>,
+    path: "/contact",
+    element: <ContactPage />,
+  },
+  {
+    path: "/about",
+    element: <AboutPage />,
   },
 ]);
 root.render(
