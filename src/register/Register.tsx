@@ -36,12 +36,12 @@ const Register = () => {
     
     return (
         <div className={styles.registerContainer}>
-            <h3 className={styles.registerTitle}>register</h3>
+            <h3 className={styles.registerTitle}>Register</h3>
 
             <div>
             <label className={styles.registerLabel} htmlFor="">Your Name</label>
                 <Input
-                placeholder="Enter your email"
+                placeholder="Enter your name"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
                 prefix={<UserOutlined className="site-form-item-icon" />}
@@ -72,11 +72,11 @@ const Register = () => {
                 <p className={styles.registerNote}>{err.passwordInput}</p> 
            </div>
            <div>
-           <label className={styles.registerLabel} htmlFor="">Password</label>
+           <label className={styles.registerLabel} htmlFor="">Confirm Password</label>
                 <br />
                 
                 <Input.Password
-                    placeholder="Enter password"
+                    placeholder="Enter Confirm Password"
                     value={confirmPassword}
                     onChange={(event) => setConfirmPassword(event.target.value)}
                     visibilityToggle={{ visible: passwordVisible, onVisibleChange: setPasswordVisible }}
@@ -84,14 +84,11 @@ const Register = () => {
                 
                 <p className={styles.registerNote}>{err.passwordInput}</p> 
            </div>
-           <div>
+           <div className={styles.ButtonCreateAccount}>
                 <Button type="primary"
                     onClick={handleregister}
-                >Sign in</Button>
-           </div>
-           <div>
-                <p>Not a member yet? Register</p>
-           </div>
+                >Create my account</Button>
+           </div>           
         </div>   
     )
 }
