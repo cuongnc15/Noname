@@ -68,7 +68,7 @@ const Login = () => {
                 <p className={styles.loginNote}>{err.passwordInput}</p> 
            </div>
            <div>
-                <p>Not a member yet? Register</p>
+                <p>Not a member yet? </p>
            </div>
         </div>        
     </div>
