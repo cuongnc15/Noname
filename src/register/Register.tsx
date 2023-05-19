@@ -5,22 +5,40 @@ import { useState } from "react";
 
 const Register = () => {
 
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     const [passwordVisible, setPasswordVisible] = useState(false);
+    const [confirmpasswordVisible, setConfirmPasswordVisible] = useState(false);
     const [email, setEmail] = useState("")
     const [name, setName] = useState("")
     const [password, setPassword] = useState("")
     const [confirmPassword, setConfirmPassword] = useState("")
     const [err, setErr] = useState({emailInput: "",
-    passwordInput: ""})
+                                    nameInput: "",  
+                                    passwordInput: "",
+                                    confirmPasswordInput: ""})
 
     const validateForm = () => {
         const mess = {emailInput: "",
+                    nameInput: "",
+                    confirmPasswordInput: "",
                     passwordInput: ""};
+        if (name.trim() === "") {
+            mess.nameInput = "*Please enter your name"
+        }
         if (email.trim() === "") {
             mess.emailInput = "*Please enter your email"
-        }
+        } else if (!email.match(mailformat)) {
+            mess.emailInput = "*Please enter a valid email address";
+          }
         if (password.trim() === "") {
             mess.passwordInput = "*Please enter your password"
+        }
+        if (confirmPassword.trim() === "") {
+            mess.confirmPasswordInput = "*Please enter your password"
+        }
+
+        if (confirmPassword.trim() !== password.trim()) {
+            mess.confirmPasswordInput = "*Confirm password not match with password"
         }
         setErr(mess);
         if (Object.keys(mess).length > 0) {
@@ -46,7 +64,7 @@ const Register = () => {
                 onChange={(event) => setName(event.target.value)}
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 />
-                <p className={styles.registerNote}>{err.emailInput}</p>                 
+                <p className={styles.registerNote}>{err.nameInput}</p>                 
             </div>
             <div>
                 <label className={styles.registerLabel} htmlFor="">Your Email</label>
@@ -79,10 +97,10 @@ const Register = () => {
                     placeholder="Enter Confirm Password"
                     value={confirmPassword}
                     onChange={(event) => setConfirmPassword(event.target.value)}
-                    visibilityToggle={{ visible: passwordVisible, onVisibleChange: setPasswordVisible }}
+                    visibilityToggle={{ visible: confirmpasswordVisible, onVisibleChange: setConfirmPasswordVisible }}
                 />
                 
-                <p className={styles.registerNote}>{err.passwordInput}</p> 
+                <p className={styles.registerNote}>{err.confirmPasswordInput}</p>
            </div>
            <div className={styles.ButtonCreateAccount}>
                 <Button type="primary"
