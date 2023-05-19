@@ -1,7 +1,10 @@
 import "./App.css";
+import LogIn from "./LogIn";
 
 function App() {
-  return <div className="App">Hello World</div>;
+  return (
+    <LogIn/>
+  )
 }
 
 export default App;
