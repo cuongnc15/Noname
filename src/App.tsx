@@ -1,10 +1,16 @@
-import "./App.css";
-import LogIn from "./LogIn";
+import './App.css';
+import Cart from './cart/Cart';
+import Login from './login/Login';
+import Register from './register/Register';
 
 function App() {
   return (
-    <LogIn/>
-  )
+    <div>
+     <Cart/>
+     <Register/>
+     <Login></Login>
+    </div>
+  );
 }
 
 export default App;
