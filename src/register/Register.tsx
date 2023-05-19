@@ -16,7 +16,7 @@ const Register = () => {
                                     nameInput: "",  
                                     passwordInput: "",
                                     confirmPasswordInput: ""})
-
+                                    
     const validateForm = () => {
         const mess = {emailInput: "",
                     nameInput: "",
