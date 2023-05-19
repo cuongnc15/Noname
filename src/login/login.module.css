@@ -1,0 +1,47 @@
+.login {
+    width: 400px;
+    height: 500px;
+    margin: auto;
+    border: 2px solid chocolate;
+    border-radius: 10px;
+    margin-top: 30px;
+    background-color: rgb(250, 239, 226);
+} 
+
+.loginIconClose {
+    text-align: right;   
+    padding: 20px 20px;
+}
+
+.IconClose {
+    padding: 5px;
+    border-radius: 50%;
+    color: rgb(251, 251, 251);
+    background-color: rgb(229, 11, 11);
+    font-size: 25px;   
+    transition: all 1250ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.IconClose:hover {
+    cursor: pointer;
+}
+
+.IconCloseMouse {
+    background-color: rgb(114, 5, 5);
+}
+
+.loginContainer {
+    padding: 20px 20px;
+}
+
+.loginTitle {
+    text-align: center;
+    font-size: 26px;
+    color: rgb(200, 54, 105);
+    margin-top: 0px;
+}
+
+.loginNote {
+    margin-top: 5px;
+    color: red;
+}
