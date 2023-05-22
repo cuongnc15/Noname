@@ -2,6 +2,7 @@ import { CloseOutlined, UserOutlined } from "@ant-design/icons"
 import { Input} from 'antd';
 import styles from './login.module.css'
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
 
 const Login = () => {
 
@@ -63,7 +64,9 @@ const Login = () => {
                 >Sign in</button>
            </div>          
            <div>
-                <p>Not a member yet? </p>
+                <p>Not a member yet? <NavLink className="linkClass" to="/register">
+                  Register
+                </NavLink></p>
            </div>
         </div>        
     </div>
