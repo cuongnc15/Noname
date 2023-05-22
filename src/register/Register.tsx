@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const Register = () => {
 
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [confirmpasswordVisible, setConfirmPasswordVisible] = useState(false);
     const [email, setEmail] = useState("")
@@ -15,7 +16,7 @@ const Register = () => {
                                     nameInput: "",  
                                     passwordInput: "",
                                     confirmPasswordInput: ""})
-
+                                    
     const validateForm = () => {
         const mess = {emailInput: "",
                     nameInput: "",
@@ -26,7 +27,9 @@ const Register = () => {
         }
         if (email.trim() === "") {
             mess.emailInput = "*Please enter your email"
-        }
+        } else if (!email.match(mailformat)) {
+            mess.emailInput = "*Please enter a valid email address";
+          }
         if (password.trim() === "") {
             mess.passwordInput = "*Please enter your password"
         }
