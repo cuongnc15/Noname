@@ -35,6 +35,10 @@ const router = createBrowserRouter([
     path: "/about",
     element: <AboutPage />,
   },
+  {
+    path: "/login",
+    element: <Login />,
+  },
 ]);
 root.render(
   <Provider store={store}>
