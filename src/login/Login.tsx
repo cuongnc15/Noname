@@ -25,20 +25,11 @@ const Login = () => {
         return false;
         } else return true;
     }
-
-    const [styleIcon, setStyleIcon] = useState("") 
-    const handleMouseInIcon = () => {
-        setStyleIcon(styles.IconCloseMouse)
-    }
-    const handleMouseOut = () => {
-        setStyleIcon("")
-    }
+    
     return (
     <div className={styles.login}>
         <div className={styles.loginIconClose}>
-            <CloseOutlined className={`${styles.IconClose} ${styleIcon}`}
-                onMouseOver={handleMouseInIcon}   
-                onMouseLeave={handleMouseOut}             
+            <CloseOutlined className={styles.IconClose}        
             />
         </div>
         <div className={styles.loginContainer}>
@@ -67,6 +58,10 @@ const Login = () => {
                 
                 <p className={styles.loginNote}>{err.passwordInput}</p> 
            </div>
+           <div className={styles.Btn}>
+                <button className={styles.loginBtn}
+                >Sign in</button>
+           </div>          
            <div>
                 <p>Not a member yet? </p>
            </div>
