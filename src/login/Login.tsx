@@ -11,13 +11,16 @@ const Login = () => {
     const [password, setPassword] = useState("")
     const [err, setErr] = useState({emailInput: "",
     passwordInput: ""})
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
     const validateForm = () => {
         const mess = {emailInput: "",
                     passwordInput: ""};
         if (email.trim() === "") {
             mess.emailInput = "*Please enter your email"
-        }
+        } else if (!email.match(mailformat)) {
+            mess.emailInput = "*Please enter a valid email address";
+          }
         if (password.trim() === "") {
             mess.passwordInput = "*Please enter your password"
         }
