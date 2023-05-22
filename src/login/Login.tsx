@@ -26,6 +26,12 @@ const Login = () => {
         return false;
         } else return true;
     }
+
+    const handlLogin = (event: any) => {
+        // event.preventDefalt();
+        const formIsValid = validateForm();
+        if (!formIsValid) return;
+    }
     
     return (
     <div className={styles.login}>
@@ -61,6 +67,7 @@ const Login = () => {
            </div>
            <div className={styles.Btn}>
                 <button className={styles.loginBtn}
+                onClick={handlLogin}
                 >Sign in</button>
            </div>          
            <div>
