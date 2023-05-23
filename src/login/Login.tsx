@@ -77,9 +77,10 @@ const Login = () => {
                 >Sign in</button>
            </div>          
            <div>
-                <p>Not a member yet? <NavLink className="linkClass" to="/register">
+                <p>Not a member yet? <NavLink className={styles.registerLink} to="/register">
                   Register
-                </NavLink></p>
+                </NavLink>
+                </p>
            </div>
         </div>      
     </div>

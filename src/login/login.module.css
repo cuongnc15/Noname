@@ -25,10 +25,9 @@
     } 
 }
 
-/* .IconClose:hover {
-    cursor: pointer;
-    opacity: 0.7;
-} */
+.registerLink{
+    text-decoration: none;
+}
 
 .loginContainer {
     padding: 20px 20px;

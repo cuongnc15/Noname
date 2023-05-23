@@ -52,7 +52,7 @@ const Register = () => {
 
     const handleregister = (event: any) => {
         // event.preventDefalt();       
-        if (validateForm() === true) alert("your register done")
+        if (validateForm() === true) alert("Your account is registered successfully!")
         return;
     }
     
@@ -109,7 +109,7 @@ const Register = () => {
            <div className={styles.ButtonCreateAccount}>
                 <Button type="primary"
                     onClick={handleregister}
-                >Create my account</Button>
+                >Create an account</Button>
            </div>           
         </div>   
     )
