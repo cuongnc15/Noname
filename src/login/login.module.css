@@ -18,13 +18,17 @@
     border-radius: 50%;
     color: rgb(251, 251, 251);
     background-color: rgb(201, 12, 78);
-    font-size: 25px;   
+    font-size: 25px;  
+    &:hover {
+        opacity: 0.7;
+        cursor: pointer;
+    } 
 }
 
-.IconClose:hover {
+/* .IconClose:hover {
     cursor: pointer;
     opacity: 0.7;
-}
+} */
 
 .loginContainer {
     padding: 20px 20px;
@@ -56,11 +60,15 @@
     padding: 8px;
     font-size: 20px;
     border: none;
-}
-
-.loginBtn:hover {
+    &:hover {
     opacity: 0.7;
     cursor: pointer;
+    }
 }
+
+/* .loginBtn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+} */
 
 

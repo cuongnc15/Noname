@@ -25,23 +25,26 @@ const Login = () => {
             mess.passwordInput = "*Please enter your password"
         }
         setErr(mess);
-        if (Object.keys(mess).length > 0) {
+        if ((Object.keys(mess.emailInput).length > 0) || (Object.keys(mess.passwordInput).length > 0)) {
         return false;
         } else return true;
     }
 
     const handlLogin = (event: any) => {
         // event.preventDefalt();
-        const formIsValid = validateForm();
-        if (!formIsValid) return;
+        if (validateForm() === true) alert("you login success")
+        else return       
     }
     
     return (
     <div className={styles.login}>
+
         <div className={styles.loginIconClose}>
-            <CloseOutlined className={styles.IconClose}        
-            />
+        <NavLink to="/">
+            <CloseOutlined className={styles.IconClose}/>
+        </NavLink>            
         </div>
+
         <div className={styles.loginContainer}>
             <h3 className={styles.loginTitle}>Login</h3>
 
@@ -78,7 +81,7 @@ const Login = () => {
                   Register
                 </NavLink></p>
            </div>
-        </div>        
+        </div>      
     </div>
   );
 };

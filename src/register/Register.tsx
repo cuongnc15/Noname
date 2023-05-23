@@ -41,15 +41,19 @@ const Register = () => {
             mess.confirmPasswordInput = "*Confirm password not match with password"
         }
         setErr(mess);
-        if (Object.keys(mess).length > 0) {
+        if ((Object.keys(mess.emailInput).length > 0) || 
+        (Object.keys(mess.passwordInput).length > 0) ||
+        (Object.keys(mess.nameInput).length > 0) || 
+        (Object.keys(mess.confirmPasswordInput).length) > 0)
+        {
         return false;
         } else return true;
     }
 
     const handleregister = (event: any) => {
-        // event.preventDefalt();
-        const formIsValid = validateForm();
-        if (!formIsValid) return;
+        // event.preventDefalt();       
+        if (validateForm() === true) alert("your register done")
+        return;
     }
     
     return (
