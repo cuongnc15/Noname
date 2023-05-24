@@ -5,6 +5,7 @@ import { useState } from "react";
 
 const Register = () => {
 
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [confirmpasswordVisible, setConfirmPasswordVisible] = useState(false);
     const [email, setEmail] = useState("")
@@ -15,7 +16,7 @@ const Register = () => {
                                     nameInput: "",  
                                     passwordInput: "",
                                     confirmPasswordInput: ""})
-
+                                    
     const validateForm = () => {
         const mess = {emailInput: "",
                     nameInput: "",
@@ -26,7 +27,9 @@ const Register = () => {
         }
         if (email.trim() === "") {
             mess.emailInput = "*Please enter your email"
-        }
+        } else if (!email.match(mailformat)) {
+            mess.emailInput = "*Please enter a valid email address";
+          }
         if (password.trim() === "") {
             mess.passwordInput = "*Please enter your password"
         }
@@ -38,15 +41,19 @@ const Register = () => {
             mess.confirmPasswordInput = "*Confirm password not match with password"
         }
         setErr(mess);
-        if (Object.keys(mess).length > 0) {
+        if ((Object.keys(mess.emailInput).length > 0) || 
+        (Object.keys(mess.passwordInput).length > 0) ||
+        (Object.keys(mess.nameInput).length > 0) || 
+        (Object.keys(mess.confirmPasswordInput).length) > 0)
+        {
         return false;
         } else return true;
     }
 
     const handleregister = (event: any) => {
-        // event.preventDefalt();
-        const formIsValid = validateForm();
-        if (!formIsValid) return;
+        // event.preventDefalt();       
+        if (validateForm() === true) alert("your register done")
+        return;
     }
     
     return (

@@ -1,16 +1,19 @@
 import './App.css';
-import Cart from './cart/Cart';
-import Login from './login/Login';
-import Register from './register/Register';
+import Header from './component/Header/Header';
+import Footer from './component/Footer/Footer';
+import Contact from './component/Contact/Contact';
 
 function App() {
   return (
-    <div>
-     {/* <Cart/>
-     <Register/> */}
-     <Login></Login>
-    </div>
+    <>
+    <Header/>
+    {/* <Info/> */}
+    {/* <Contact/> */}
+    <Footer/>
+    </>
   );
 }
 
+
 export default App;
+

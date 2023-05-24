@@ -5,7 +5,7 @@
     margin: auto;
     border: 2px solid chocolate;
     border-radius: 10px;
-    margin-top: 30px;
+    margin-top: 100px;
     background-color: rgb(250, 239, 226);
 } 
 
@@ -19,12 +19,17 @@
     border-radius: 50%;
     color: rgb(251, 251, 251);
     background-color: rgb(201, 12, 78);
-    font-size: 25px;   
+    font-size: 25px;  
     &:hover {
-        cursor: pointer;
         opacity: 0.7;
-    }
+        cursor: pointer;
+    } 
 }
+
+/* .IconClose:hover {
+    cursor: pointer;
+    opacity: 0.7;
+} */
 
 .loginContainer {
     padding: 20px 20px;
@@ -57,9 +62,14 @@
     font-size: 20px;
     border: none;
     &:hover {
-        cursor: pointer;
-        opacity: 0.7;
-      }
+    opacity: 0.7;
+    cursor: pointer;
+    }
 }
+
+/* .loginBtn:hover {
+    opacity: 0.7;
+    cursor: pointer;
+} */
 
 
