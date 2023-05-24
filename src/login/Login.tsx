@@ -1,6 +1,6 @@
 import { CloseOutlined, UserOutlined } from "@ant-design/icons"
 import { Input} from 'antd';
-import styles from './login.module.css'
+import styles from './login.module.scss'
 import { useState } from "react";
 
 const Login = () => {
@@ -25,7 +25,7 @@ const Login = () => {
         return false;
         } else return true;
     }
-    
+
     return (
     <div className={styles.login}>
         <div className={styles.loginIconClose}>
