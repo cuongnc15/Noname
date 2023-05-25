@@ -13,6 +13,9 @@ import ContactPage from './page/ContactPage';
 import AboutPage from './page/AboutPage';
 import LoginPage from './page/LoginPage';
 import RegisterPage from './page/RegisterPage';
+import Heading from './components/Heading';
+import ProductPage from './page/ProductPage';
+import CartPage from './page/CartPage';
 
 
 const root = ReactDOM.createRoot(
@@ -43,6 +46,14 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <RegisterPage />,
+  },
+  {
+    path: "/products",
+    element: <ProductPage />,
+  },
+  {
+    path: "/cart",
+    element: <CartPage />,
   },
 ]);
 root.render(

@@ -1,16 +1,16 @@
-import Cart from "../cart/Cart";
+import Contact from "../component/Contact/Contact";
 import Footer from "../component/Footer/Footer";
 import Header from "../component/Header/Header";
-import Register from "../register/Register";
+import Heading from "../components/Heading";
 
-function CartPage() {
+function ProductPage() {
   return(
     <>
         <Header/>
-        <Cart/>
+        <Heading />
         <Footer/>
     </>
   );
   
 }
-export default CartPage;
+export default ProductPage;
