@@ -2,10 +2,10 @@ import classes from "./productList.module.css";
 import ProductItem from "./ProductItem";
 
 const ProductList = (props: any) => {
-  const { items } = props;
+//   const { items } = props;
   return (
     <ul className={classes["product__list"]}>
-      {items.map((item: any) => (
+      {props.items.map((item: any) => (
         <ProductItem
           key={item.id}
           image={item.image}
@@ -17,4 +17,5 @@ const ProductList = (props: any) => {
     </ul>
   );
 };
+
 export default ProductList;

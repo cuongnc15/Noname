@@ -54,23 +54,23 @@ const Products = () => {
   }, []);
   const categories = [
     {
-      id: "",
+      id: "1",
       name: "All",
     },
     {
-      id: "",
+      id: "2",
       name: "Men's Clothing",
     },
     {
-      id: "",
+      id: "3",
       name: "Women's Clothing",
     },
     {
-      id: "",
+      id: "4",
       name: "Jewelery",
     },
     {
-      id: "",
+      id: "5",
       name: "Electronics",
     },
   ];
@@ -97,16 +97,16 @@ const Products = () => {
   const loading = (
     <div>
       <div className={classes.mb}>
-        <Skeleton/>
+        <Skeleton className={classes.ske}/>
       </div>
       <div className={classes.mb}>
-        <Skeleton />
+        <Skeleton className={classes.ske}/>
       </div>
       <div className={classes.mb}>
-        <Skeleton />
+        <Skeleton className={classes.ske}/>
       </div>
       <div className={classes.mb}>
-        <Skeleton />
+        <Skeleton className={classes.ske}/>
       </div>
     </div>
   );
@@ -116,6 +116,7 @@ const Products = () => {
       <div className={classes["products__search"]}>
         <input type="text" />
         <SearchOutlined 
+        onFocus={handleKeyPress}
         onClick={itemSearchHandler}
         />
       </div>

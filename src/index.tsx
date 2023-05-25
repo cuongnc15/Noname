@@ -56,6 +56,11 @@ const router = createBrowserRouter([
     path: "/cart",
     element: <CartPage />,
   },
+  // {
+  //   path: "//products/:productId",
+  //   element: <ProductDetailPage />,
+  // },
+  
 ]);
 root.render(
   <Provider store={store}>

@@ -3,21 +3,25 @@ import Header from "../component/Header/Header";
 import Info from "../component/Info/Info";
 import React from 'react';
 import { Carousel } from 'antd';
+import img1 from "../asset/bgr/bg.jpg";
+import styles from "./HomePage.module.css";
 
 const contentStyle: React.CSSProperties = {
-  height: '460px',
+  height: '560px',
   color: '#fff',
-  lineHeight: '460px',
+  lineHeight: '560px',
   textAlign: 'center',
   background: '#364d79',
 };
 function HomePage() {
   return(
     <>
-        <Header/>
+    <Header/>
         <Carousel autoplay>
     <div>
-      <h3 style={contentStyle}>1</h3>
+      <h3 style={contentStyle}>
+        <img className={styles.img} src={img1} alt="" />
+      </h3>
     </div>
     <div>
       <h3 style={contentStyle}>2</h3>
