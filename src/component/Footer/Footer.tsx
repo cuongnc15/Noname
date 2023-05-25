@@ -12,7 +12,6 @@ const Footer = () => {
           <div className="footer__content--promo">
             <h5>PROMO</h5>
             <img src={img} alt="image" />
-
             <span> Finding Your Perfect Shirts This Summer</span>
           </div>
           <div className="footer__content--links">
