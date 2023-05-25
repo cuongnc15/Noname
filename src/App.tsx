@@ -8,11 +8,11 @@ import Info from './component/Info/Info';
 function App() {
   return (
     <>
-    <Header/>
+    {/* <Header/>
   
 
     {/* <Heading/> */}
-    <Footer/>
+    {/* <Footer/> */} 
     </>
   );
 }

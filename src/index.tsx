@@ -16,6 +16,7 @@ import RegisterPage from './page/RegisterPage';
 import Heading from './components/Heading';
 import ProductPage from './page/ProductPage';
 import CartPage from './page/CartPage';
+import HomePage from './page/HomePage';
 
 
 const root = ReactDOM.createRoot(
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
   // },
   {
     path: "/",
-    element: <App/>,
+    element: <HomePage/>
   },
   {
     path: "/contact",
