@@ -1,0 +1,91 @@
+.product {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2.4rem;
+    
+  }
+  .product__preview img {
+    
+    text-align: center;
+     
+      width: 400px;
+     
+      
+    
+  }
+
+  .product__preview {
+    width: 50%;
+  }
+  .product__overview {
+    width: 50%;
+    
+  }
+  .product__category {
+    color: rgb(96, 111, 122);
+    font-size: 1.3rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+  }
+  .product__name {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.5rem;
+    margin-bottom: 7px;
+  }
+  .product__rating {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 0;
+  }
+  .rate__icon {
+    vertical-align: baseline;
+    padding-left: 4px;
+    color: rgb(223, 223, 53);
+  }
+  .product__price {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  .product__desc {
+    font-size: 1rem;
+    font-weight: 300;
+    margin-bottom: 24px;
+  }
+  .btn {
+    margin-left: 10px;
+    padding: 6px 14px;
+    font-size: 1rem;
+    font-family: "Gantari", sans-serif;
+    border-radius: 10px;
+  }
+  .product__btn {
+   
+    cursor: pointer;
+    border: 1.5px solid rgb(37, 20, 20);
+    color: black;
+    background-color: white;
+    &:hover {
+      border: 1.5px solid white;
+      color: white;
+      background-color: black;
+    }
+  }
+  .product__link {
+    
+    text-decoration: none;
+    cursor: pointer;
+    border: 1.5px solid white;
+    color: white;
+    background-color: black;
+    &:hover {
+      border: 1.5px solid rgb(37, 20, 20);
+      color: black;
+      background-color: white;
+    }
+  }

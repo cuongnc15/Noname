@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import ProductList from "./ProductList";
 import classes from "./products.module.css";
-import { Skeleton } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
+import Skeleton from "react-loading-skeleton";
 const Products = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [items, setItems] = useState([]);
@@ -97,16 +97,16 @@ const Products = () => {
   const loading = (
     <div>
       <div className={classes.mb}>
-        <Skeleton className={classes.ske}/>
+        <Skeleton height={100} width={900}/>
       </div>
       <div className={classes.mb}>
-        <Skeleton className={classes.ske}/>
+        <Skeleton height={100} width={900}/>
       </div>
       <div className={classes.mb}>
-        <Skeleton className={classes.ske}/>
+        <Skeleton height={100} width={900}/>
       </div>
       <div className={classes.mb}>
-        <Skeleton className={classes.ske}/>
+        <Skeleton height={100} width={900}/>
       </div>
     </div>
   );

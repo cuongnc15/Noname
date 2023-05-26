@@ -17,6 +17,7 @@ import Heading from './components/Heading';
 import ProductPage from './page/ProductPage';
 import CartPage from './page/CartPage';
 import HomePage from './page/HomePage';
+import ProductDetailPage from './page/ProductDetailPage';
 
 
 const root = ReactDOM.createRoot(
@@ -56,10 +57,10 @@ const router = createBrowserRouter([
     path: "/cart",
     element: <CartPage />,
   },
-  // {
-  //   path: "//products/:productId",
-  //   element: <ProductDetailPage />,
-  // },
+  {
+    path: "//products/:productId",
+    element: <ProductDetailPage />,
+  },
   
 ]);
 root.render(
