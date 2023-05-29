@@ -1,7 +1,10 @@
 import { Button, Input } from "antd"
 import styles from "./register.module.css"
 import { UserOutlined } from "@ant-design/icons"
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { enqueueSnackbar } from "notistack";
+import { authAction } from "../component/store/store";
+import { useDispatch } from "react-redux";
 
 const Register = () => {
 
@@ -16,8 +19,18 @@ const Register = () => {
                                     nameInput: "",  
                                     passwordInput: "",
                                     confirmPasswordInput: ""})
-                                    
+     const nameInputRef = useRef<any>();
+    const emailInputRef = useRef<any>("");
+    const passwordInputRef = useRef<any>("");
+    const cfPasswordInputRef = useRef<any>(""); 
+    const dispatch = useDispatch();
+
     const validateForm = () => {
+
+    const name = nameInputRef.current.value;
+    const email = emailInputRef.current.value;
+    const password = passwordInputRef.current.value;
+    const cfPassword = cfPasswordInputRef.current.value;
         const mess = {emailInput: "",
                     nameInput: "",
                     confirmPasswordInput: "",
@@ -51,10 +64,51 @@ const Register = () => {
     }
 
     const handleregister = (event: any) => {
-        // event.preventDefalt();       
-        if (validateForm() === true) alert("Your account is registered successfully!")
-        return;
-    }
+        
+    const formIsValid = validateForm();
+    if (!formIsValid) return;
+    const signupAccountFn = async () => {
+      try {
+        const response = await fetch(
+          "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyC7mNCfEzs7oh9Jr9QIpk2XHc796oTFu1Y",
+          {
+            method: "POST",
+            body: JSON.stringify({
+              email: emailInputRef.current.value,
+              password: passwordInputRef.current.value,
+              returnSecureToken: true,
+            }),
+          }
+        );
+
+        if (!response.ok) {
+          const content = await response.json();
+          enqueueSnackbar(content.error.message, { variant: "error" });
+          alert(content.error.message);
+          return;
+        }
+        // send data to database
+        dispatch(authAction.registerHandler());
+        await fetch(
+          `https://react-http-9e6b9-default-rtdb.firebaseio.com/myCart.json`,
+          {
+            method: "POST",
+            body: JSON.stringify({
+              email: emailInputRef.current.value,
+              name: nameInputRef.current.value,
+              items: [0],
+            }),
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+        enqueueSnackbar("Your account is registered successfully!", {
+          variant: "success",
+        });
+      } catch (err) {}
+    };
+    signupAccountFn();
+  };
+    
     
     return (
         <div className={styles.registerContainer}>
@@ -64,8 +118,8 @@ const Register = () => {
             <label className={styles.registerLabel} htmlFor="">Your Name</label>
                 <Input
                 placeholder="Enter your name"
-                value={name}
-                onChange={(event) => setName(event.target.value)}
+                ref={nameInputRef}
+                onChange={(event: any) => setName(event.target.value)}
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 />
                 <p className={styles.registerNote}>{err.nameInput}</p>                 
@@ -75,7 +129,8 @@ const Register = () => {
                 <Input
                 placeholder="Enter your email"
                 value={email}
-                onChange={(event) => setEmail(event.target.value)}
+                ref={emailInputRef}
+                onChange={(event: any) => setEmail(event.target.value)}
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 />
                 <p className={styles.registerNote}>{err.emailInput}</p>      
@@ -87,7 +142,8 @@ const Register = () => {
                 <Input.Password
                     placeholder="Enter password"
                     value={password}
-                    onChange={(event) => setPassword(event.target.value)}
+                    ref={passwordInputRef}
+                    onChange={(event: any) => setPassword(event.target.value)}
                     visibilityToggle={{ visible: passwordVisible, onVisibleChange: setPasswordVisible }}
                 />
                 
@@ -100,6 +156,7 @@ const Register = () => {
                 <Input.Password
                     placeholder="Enter Confirm Password"
                     value={confirmPassword}
+                    ref={cfPasswordInputRef}
                     onChange={(event) => setConfirmPassword(event.target.value)}
                     visibilityToggle={{ visible: confirmpasswordVisible, onVisibleChange: setConfirmPasswordVisible }}
                 />

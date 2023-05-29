@@ -2,7 +2,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { useSnackbar } from "notistack";
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, NavLink } from "react-router-dom";
 import classes from "./SelectedProduct.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { cartAction } from "../store/store";
@@ -80,8 +80,10 @@ const SelectedProduct = () => {
         name: product.title,
         image: product.image,
         amount: 1,
+        
       })
     );
+    console.log(product);
     enqueueSnackbar("You have added an item", { variant: "info" });
   };
   const Loading = (
@@ -138,9 +140,9 @@ const SelectedProduct = () => {
           >
             Add to Cart
           </button>
-          <Link className={classes["product__link"]} to="/cart">
+          <NavLink className={classes["product__link"]} to="/cart">
             Go to Cart
-          </Link>
+          </NavLink>
         </div>
       </div>
     </div>

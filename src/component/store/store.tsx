@@ -1,35 +1,39 @@
-import { configureStore, createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, configureStore, createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
   name: "cart",
-  initialState: JSON.parse(localStorage.getItem("userCart") || "null") || {
+  initialState: JSON.parse(localStorage.getItem("userCart")|| '{}') || {
     id: "",
     name: "",
-    items: [],
+    items: [{amount: null,
+      price: "",
+    }],
   },
-
+  
   // initialState: { id: "", name: "", items: [] },
   reducers: {
-    updateCart(state, action) {
+    updateCart(state, action: PayloadAction<any>) {
       state.id = action.payload.id;
       state.name = action.payload.name;
       state.items = action.payload.items;
     },
-    addItem(state, action) {
+    addItem(state, action: PayloadAction<any>) {
       const { id } = action.payload;
       if (state.items.find((item: any) => item.id === id)) {
         const index = state.items.findIndex((item: any) => item.id === id);
 
-        state.items[index].amount++;
+        state.items[index].amount += 1;
+        console.log(id);
       } else {
         state.items = state.items.concat(action.payload);
       }
       //  localStorage.setItem("userCart", JSON.stringify(state));
     },
+    
     removeItem(state, action) {
       const id = action.payload;
       const index = state.items.findIndex((item: any) => item.id === id);
       if (state.items[index].amount > 1) {
-        state.items[index].amount--;
+        state.items[index].amount-=1;
       } else {
         state.items.splice(index, 1);
       }
@@ -40,13 +44,16 @@ const cartSlice = createSlice({
       state.name = "";
       state.id = "";
     },
+    
   },
+  
 });
+
 export const cartAction = cartSlice.actions;
 
 const authSlice = createSlice({
   name: "Authentication",
-  initialState: JSON.parse(localStorage.getItem("userAccount") || "null") || {
+  initialState: JSON.parse(localStorage.getItem("userAccount")|| '{}') || {
     token: null,
     isLogin: false,
     isRegistered: false,

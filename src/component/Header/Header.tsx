@@ -14,7 +14,7 @@ const Header = () => {
 
   const totalAmount = items
     .map((item: any) => item.amount)
-    .reduce((el: number, num: number) => el + num, 0);
+    .reduce((el: any, num: any) => el + num, 0);
 
   const [showMenu, setShowMenu] = useState(false);
   const showMenuHandler = () => {

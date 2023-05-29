@@ -53,6 +53,7 @@ const Login = () => {
                 <Input
                 placeholder="Enter your username"
                 value={email}
+                
                 onChange={(event) => setEmail(event.target.value)}
                 prefix={<UserOutlined className="site-form-item-icon" />}
                 />
@@ -65,6 +66,7 @@ const Login = () => {
                 <Input.Password
                     placeholder="Enter password"
                     value={password}
+                    
                     onChange={(event) => setPassword(event.target.value)}
                     visibilityToggle={{ visible: passwordVisible, onVisibleChange: setPasswordVisible }}
                 />

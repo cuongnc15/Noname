@@ -65,7 +65,9 @@
     border-radius: 10px;
   }
   .product__btn {
-   
+    padding: 3px 5px;
+    border-radius: 8px;
+    margin-left: 5px;
     cursor: pointer;
     border: 1.5px solid rgb(37, 20, 20);
     color: black;
@@ -81,6 +83,9 @@
     text-decoration: none;
     cursor: pointer;
     border: 1.5px solid white;
+    padding: 3px 5px;
+    border-radius: 8px;
+    margin-left: 15px;
     color: white;
     background-color: black;
     &:hover {

@@ -5,6 +5,7 @@ import React from 'react';
 import { Carousel } from 'antd';
 import img1 from "../asset/bgr/bg.jpg";
 import styles from "./HomePage.module.css";
+import Products from "../component/product/Products";
 
 const contentStyle: React.CSSProperties = {
   height: '560px',
@@ -33,6 +34,7 @@ function HomePage() {
       <h3 style={contentStyle}>4</h3>
     </div>
   </Carousel>
+  <Products/>
         <Footer/>
     </>
   );
