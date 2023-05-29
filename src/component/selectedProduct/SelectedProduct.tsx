@@ -15,7 +15,9 @@ let initial = false;
 const SelectedProduct = () => {
   const isLogin = useSelector((state: any) => state.auth.isLogin);
   const id = useSelector((state: any) => state.cart.id);
+  console.log('id ',id);
   const items = useSelector((state: any) => state.cart.items);
+  console.log(items);
   const cart = useSelector((state: any) => state.cart.cart);
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
@@ -80,6 +82,7 @@ const SelectedProduct = () => {
         name: product.title,
         image: product.image,
         amount: 1,
+
       })
     );
     enqueueSnackbar("You have added an item", { variant: "info" });

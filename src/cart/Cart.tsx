@@ -7,6 +7,7 @@ let initial = false;
 const Cart = () => {
     const isLogin = useSelector((state: any) => state.auth.isLogin);
     const items = useSelector((state: any) => state.cart.items);
+    console.log(items);
     const id = useSelector((state: any) => state.cart.id);
     const totalPrice = items
       .map((item: any) => item.amount * item.price)
