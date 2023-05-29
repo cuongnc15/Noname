@@ -51,6 +51,8 @@
   @media (min-width: 500px) and (max-width: 920px) {
     width: 20rem;
   }
+  
+  margin-left: 200px;
 }
 
 .list__link {
@@ -73,7 +75,7 @@
 .footer__content--contact {
   width: 20rem;
   font-weight: 300;
-  
+  margin-left: 300px;
 }
 .footer__copyright {
   margin-top: 0;

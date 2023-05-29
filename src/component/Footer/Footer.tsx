@@ -52,10 +52,12 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <p className="footer__copyright">
+        
+      </div>
+
+      <p className="footer__copyright">
           Copyright ©2022 All rights reserved | This template is by Me
         </p>
-      </div>
     </footer>
   );
 };
