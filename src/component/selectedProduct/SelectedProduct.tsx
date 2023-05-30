@@ -84,7 +84,6 @@ const SelectedProduct = () => {
         amount: 1,
       })
     );
-    console.log(product);
     enqueueSnackbar("You have added an item", { variant: "info" });
   };
   const Loading = (
