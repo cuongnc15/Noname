@@ -72,7 +72,6 @@ body {
   margin: 0;
 }
 .bgr {
-  margin-top: header--height;
   width: 100%;
   height: 80vh;
   background-image: url("./asset/bgr/bg.jpg");
