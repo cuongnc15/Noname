@@ -1,5 +1,6 @@
 
 .main__cart {
+  padding-top: 100px;
   width: 90%;
   margin: auto;
 }
@@ -22,4 +23,16 @@
   text-align: center;
   font-size: 1.2rem;
   font-weight: bold;
+}
+.clearButton {
+  background-color: gray;
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 5px 15px;
+  margin-top: 20px;
+  font-weight: bold;
+  right: 50%;
+  &:hover {
+    opacity: 0.7;
+  }
 }

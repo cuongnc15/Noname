@@ -4,29 +4,35 @@
   align-items: center;
   margin-bottom: 3rem;
 }
+
 .image__container {
   width: 50%;
   text-align: center;
   
 }
-img {
-    width: 180px;
-    height: 180px;
-    
+.image__container img {
+    width: 200px;
+    height: auto;
+    margin: auto;
+    object-fit: cover;
   }
+
 .item__info {
   width: 50%;
 }
+
 .item__name {
   font-size: 1.2rem;
   font-weight: 300;
   margin-bottom: 0.5rem;
 }
+
 .item__price {
   font-size: 1.2rem;
   font-weight: bold;
   margin: 0.5rem 0;
 }
+
 .btn button{
    
     width: 2rem;
@@ -44,3 +50,4 @@ img {
     }
 
 }
+

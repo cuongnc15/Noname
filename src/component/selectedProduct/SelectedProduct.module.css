@@ -1,24 +1,23 @@
 .product {
+  padding-top: 100px;
     width: 90%;
     margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 2.4rem;
     
   }
   .product__preview img {
     
-    text-align: center;
-     
-      width: 400px;
-     
-      
-    
+    height: auto;
+     object-fit: contain;
+      width: 200px;
+     margin: auto;   
   }
 
   .product__preview {
     width: 50%;
+    text-align: center;
   }
   .product__overview {
     width: 50%;
@@ -65,12 +64,12 @@
     border-radius: 10px;
   }
   .product__btn {
-    padding: 3px 5px;
-    border-radius: 8px;
+
      font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 1rem;
     padding: 8px 14px;
-    margin-left: 5px;border-radius: 13px;
+    margin-left: 5px;
+    border-radius: 13px;
     cursor: pointer;
     border: 1.5px solid rgb(37, 20, 20);
     color: black;
@@ -90,9 +89,6 @@
     text-decoration: none;
     cursor: pointer;
     border: 1.5px solid white;
-    padding: 3px 5px;
-    border-radius: 8px;
-    margin-left: 15px;
     color: white;
     background-color: black;
     &:hover {

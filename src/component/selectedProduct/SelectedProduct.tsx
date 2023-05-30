@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { cartAction } from "../store/store";
 import Skeleton from "react-loading-skeleton";
 import { StarOutlined } from "@ant-design/icons";
-
+import "../../dist/output.css"
 
 library.add(fas);
 let initial = false;
@@ -120,7 +120,7 @@ const SelectedProduct = () => {
     <div className={classes.product}>
       <div className={classes["product__preview"]}>
         <img src={product.image} alt={product.title} />
-      </div>
+      </div >
       <div className={classes["product__overview"]}>
         <h3 className={classes["product__category"]}>{product.category}</h3>
         <p className={classes["product__name"]}>{product.title}</p>
@@ -134,7 +134,7 @@ const SelectedProduct = () => {
         <h2 className={classes["product__price"]}>$ {product.price}</h2>
         <p className={classes["product__desc"]}>{product.description}</p>
         <div>
-          <button
+          <button        
             className={classes["product__btn"]}
             onClick={addToCartHandler}
           >

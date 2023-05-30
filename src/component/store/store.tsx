@@ -1,17 +1,15 @@
 import { PayloadAction, configureStore, createSlice } from "@reduxjs/toolkit";
 const cartSlice = createSlice({
   name: "cart",
-  initialState: JSON.parse(localStorage.getItem("userCart")|| '{}') || {
+  initialState: JSON.parse(localStorage.getItem("userCart")|| 'null') || {
     id: "",
     name: "",
-    items: [{amount: null,
-      price: "",
-    }],
+    items: [],
   },
   
   // initialState: { id: "", name: "", items: [] },
   reducers: {
-    updateCart(state, action: PayloadAction<any>) {
+    updateCart(state, action) {
       state.id = action.payload.id;
       state.name = action.payload.name;
       state.items = action.payload.items;
@@ -34,7 +32,7 @@ const cartSlice = createSlice({
       const id = action.payload;
       const index = state.items.findIndex((item: any) => item.id === id);
       if (state.items[index].amount > 1) {
-        state.items[index].amount-=1;
+        state.items[index].amount--;
       } else {
         state.items.splice(index, 1);
       }

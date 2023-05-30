@@ -31,6 +31,8 @@ const CartItem = (props: any) => {
     const removeItemHandler = () => {
       dispatch(cartAction.removeItem(props.id));
     };
+
+    
     return (
       <li className={classes.list}>
         <div className={classes["image__container"]}>
@@ -45,6 +47,7 @@ const CartItem = (props: any) => {
             <button onClick={removeItemHandler}>-</button>
             <button onClick={addItemHadnler}>+</button>
           </div>
+          
         </div>
       </li>
     );

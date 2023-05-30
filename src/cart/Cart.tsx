@@ -1,13 +1,14 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import classes from "./cart.module.css"
 import { useEffect } from "react";
 import CartItem from "./CartItem";
+import { cartAction } from "../component/store/store";
 let initial = false;
 
 const Cart = () => {
+    const dispatch = useDispatch();
     const isLogin = useSelector((state: any) => state.auth.isLogin);
     const items = useSelector((state: any) => state.cart.items);
-    console.log(items);
     const id = useSelector((state: any) => state.cart.id);
     const totalPrice = items
       .map((item: any) => item.amount * item.price)
@@ -39,6 +40,9 @@ const Cart = () => {
         </main>
       );
     }
+    const clearItemHadnler = () => {
+      dispatch(cartAction.clearCart())
+    }
     return (
       <main className={classes["main__cart"]}>
         <ul className={classes["item__list"]}>
@@ -54,7 +58,15 @@ const Cart = () => {
           ))}
         </ul>
   
-        <div className={classes.total}>Total: $ {totalPrice}</div>
+        <div className={classes.total}>Total: $ {totalPrice}
+        <div>
+        <button className={classes.clearButton} 
+            onClick={clearItemHadnler}>Clear Your Cart</button>
+        </div>       
+        </div>
+        
+          
+          
       </main>
     );
   };
