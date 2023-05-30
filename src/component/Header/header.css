@@ -44,8 +44,9 @@
     color: black;
     padding: 0;
   }
-.nav li {
+.nav li a{
     text-decoration: none;
+    font-weight: 700;
   }
   
 .link {

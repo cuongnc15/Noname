@@ -16,7 +16,8 @@ const cartSlice = createSlice({
       state.name = action.payload.name;
       state.items = action.payload.items;
     },
-    addItem(state, action: PayloadAction<any>) {
+    addItem(state, action) {
+
       const { id } = action.payload;
       if (state.items.find((item: any) => item.id === id)) {
         const index = state.items.findIndex((item: any) => item.id === id);

@@ -4,8 +4,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux'
-import store from './app/store'
+import store from './component/store/store'
 import {
+  BrowserRouter,
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
@@ -58,15 +59,18 @@ const router = createBrowserRouter([
     element: <CartPage />,
   },
   {
-    path: "//products/:productId",
+    path: "/products/:productId",
     element: <ProductDetailPage />,
   },
   
 ]);
 root.render(
   <Provider store={store}>
-    {/* <App /> */}
-    <RouterProvider router={router} />
+    <BrowserRouter>
+    
+     <App /> 
+    </BrowserRouter>
+    {/* <RouterProvider router={router} /> */}
   </Provider>
 );
 
