@@ -8,16 +8,17 @@ import { useDispatch, useSelector } from "react-redux";
 import { cartAction } from "../store/store";
 import Skeleton from "react-loading-skeleton";
 import { StarOutlined } from "@ant-design/icons";
-import "../../dist/output.css"
+
 
 library.add(fas);
 let initial = false;
 const SelectedProduct = () => {
+
   const isLogin = useSelector((state: any) => state.auth.isLogin);
   const id = useSelector((state: any) => state.cart.id);
-  console.log('id ',id);
+  
   const items = useSelector((state: any) => state.cart.items);
-  console.log(items);
+  const { enqueueSnackbar } = useSnackbar();
   const cart = useSelector((state: any) => state.cart.cart);
   const [isLoading, setIsLoading] = useState(false);
   const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const SelectedProduct = () => {
   });
   const params = useParams();
   const { productId } = params;
-  const { enqueueSnackbar } = useSnackbar();
+  
   useEffect(() => {
     const getSingleProduct = async () => {
       setIsLoading(true);
@@ -84,7 +85,10 @@ const SelectedProduct = () => {
         amount: 1,
       })
     );
-    enqueueSnackbar("You have added an item", { variant: "info" });
+    
+    enqueueSnackbar('You have added an item' )
+    
+    // { variant: "info" });
   };
   const Loading = (
     <div className={classes.product}>

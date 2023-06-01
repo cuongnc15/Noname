@@ -2,10 +2,15 @@ import { CloseOutlined, UserOutlined } from "@ant-design/icons"
 import { Input} from 'antd';
 import styles from './login.module.css'
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { enqueueSnackbar } from "notistack";
+import { authAction, cartAction } from "../component/store/store";
 
 const Login = () => {
 
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -31,9 +36,52 @@ const Login = () => {
     }
 
     const handlLogin = (event: any) => {
-        // event.preventDefalt();
-        if (validateForm() === true) alert("you login success")
-        else return       
+        const formIsValid = validateForm();
+    if (!formIsValid) return;
+    const signinHandlerFn = async () => {
+      const response = await fetch(
+        "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyC7mNCfEzs7oh9Jr9QIpk2XHc796oTFu1Y",
+        {
+          method: "POST",
+          body: JSON.stringify({
+            email: email,
+            password: password,
+            returnSecureToken: true,
+          }),
+          headers: { "Content-Type": "application/json" },
+        }
+      );
+      if (!response.ok) {
+        const content = await response.json();
+        enqueueSnackbar(content.error.message, { variant: "error" });
+        await content.error.message;
+
+        setEmail("");
+        setPassword("");
+        return;
+      }
+      const data = await response.json();
+
+      dispatch(authAction.loginHandler(data.idToken));
+      const responseData = await fetch(
+        "https://react-http-9e6b9-default-rtdb.firebaseio.com/myCart.json"
+      );
+      const userData = await responseData.json();
+      let arr = [];
+      for (const key in userData) {
+        arr.push({ id: key, ...userData[key] });
+      }
+      const selectedElement = arr.filter((el) => el.email === email);
+      selectedElement[0].items.splice(0, 1);
+      dispatch(cartAction.updateCart(selectedElement[0]));
+      localStorage.setItem(
+        "userAccount",
+        JSON.stringify({ isLogin: true, showLoginForm: true })
+      );
+      localStorage.setItem("userCart", JSON.stringify(selectedElement[0]));
+      navigate("/");
+    };
+    signinHandlerFn();    
     }
     
     return (

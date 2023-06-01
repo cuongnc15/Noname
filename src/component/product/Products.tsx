@@ -8,7 +8,7 @@ const Products = () => {
   const [items, setItems] = useState([]);
   const [filteredItems, setFilteredItems] = useState([]);
   const [isActive, setIsActive] = useState(1);
-  const inputSearchRef = useRef("");
+  const inputSearchRef = useRef<any>("");
 
   const itemChooseHandler = (event: any) => {
     const { id, name } = event.target;
@@ -27,17 +27,19 @@ const Products = () => {
     }
   };
   const itemSearchHandler = () => {
-    const valueSearch = inputSearchRef.current.toLowerCase();
+    const valueSearch = inputSearchRef.current.value.toLowerCase();
     const updateList = items
       .slice()
       .filter((item: any) => item.title.toLowerCase().includes(valueSearch));
 
     setFilteredItems(updateList);
-    inputSearchRef.current = "";
+    console.log(valueSearch);
   };
   const handleKeyPress = (event: any) => {
+    
     if (event.key === "Enter") {
       itemSearchHandler();
+      console.log("asa");
     }
   };
 
@@ -75,9 +77,9 @@ const Products = () => {
     },
   ];
   const btnList = (
-    <ul className={classes["button__list"]}>
+    <div className={classes["button__list"]}>
       {categories.map((cat) => (
-        <li key={cat.id}>
+        <div key={cat.id}>
           <button
             className={
               isActive.toString() === cat.id
@@ -90,9 +92,9 @@ const Products = () => {
           >
             {cat.name}
           </button>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   );
   const loading = (
     <div>
@@ -114,9 +116,8 @@ const Products = () => {
     <div className={classes.products}>
       <h1>Latest products </h1>
       <div className={classes["products__search"]}>
-        <input type="text" />
-        <SearchOutlined 
-        onFocus={handleKeyPress}
+        <input type="text" ref={inputSearchRef} onKeyDown={handleKeyPress}/>
+        <SearchOutlined         
         onClick={itemSearchHandler}
         />
       </div>

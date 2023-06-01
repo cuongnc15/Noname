@@ -2,7 +2,7 @@ import classes from "./productList.module.css";
 import ProductItem from "./ProductItem";
 
 const ProductList = (props: any) => {
-//   const { items } = props;
+  const { items } = props;
   return (
     <ul className={classes["product__list"]}>
       {props.items.map((item: any) => (

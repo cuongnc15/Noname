@@ -19,6 +19,7 @@ import ProductPage from './page/ProductPage';
 import CartPage from './page/CartPage';
 import HomePage from './page/HomePage';
 import ProductDetailPage from './page/ProductDetailPage';
+import { SnackbarProvider } from 'notistack';
 
 
 const root = ReactDOM.createRoot(
@@ -67,8 +68,12 @@ const router = createBrowserRouter([
 root.render(
   <Provider store={store}>
     <BrowserRouter>
-    
-     <App /> 
+    <SnackbarProvider
+        maxSnack={2}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+      >
+        <App />
+      </SnackbarProvider> 
     </BrowserRouter>
     {/* <RouterProvider router={router} /> */}
   </Provider>

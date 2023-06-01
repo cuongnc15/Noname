@@ -11,7 +11,7 @@ function RegisterPage() {
     <>
         <Header/>
         {isRegistered && <RegisterDone />}
-      {!isRegistered && <Register/>}
+        {!isRegistered && <Register/>}
         
         <Footer/>
     </>

@@ -1,6 +1,6 @@
 import { Button, Input } from "antd"
 import styles from "./register.module.css"
-import { UserOutlined } from "@ant-design/icons"
+import { EyeInvisibleOutlined, UserOutlined } from "@ant-design/icons"
 import { useRef, useState } from "react";
 import { enqueueSnackbar } from "notistack";
 import { authAction } from "../component/store/store";
@@ -11,18 +11,15 @@ const Register = () => {
     const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     const [passwordVisible, setPasswordVisible] = useState(false);
     const [confirmpasswordVisible, setConfirmPasswordVisible] = useState(false);
-    const [email, setEmail] = useState("")
-    const [name, setName] = useState("")
-    const [password, setPassword] = useState("")
-    const [confirmPassword, setConfirmPassword] = useState("")
+
     const [err, setErr] = useState({emailInput: "",
                                     nameInput: "",  
                                     passwordInput: "",
                                     confirmPasswordInput: ""})
-     const nameInputRef = useRef<any>();
-    const emailInputRef = useRef<any>("");
-    const passwordInputRef = useRef<any>("");
-    const cfPasswordInputRef = useRef<any>(""); 
+    const nameInputRef = useRef<any>();
+    const emailInputRef = useRef<any>();
+    const passwordInputRef = useRef<any>();
+    const cfPasswordInputRef = useRef<any>(); 
     const dispatch = useDispatch();
 
     const validateForm = () => {
@@ -30,24 +27,25 @@ const Register = () => {
     const name = nameInputRef.current.value;
     const email = emailInputRef.current.value;
     const password = passwordInputRef.current.value;
-    const cfPassword = cfPasswordInputRef.current.value;
+    const confirmPassword = cfPasswordInputRef.current.value;
+    
         const mess = {emailInput: "",
                     nameInput: "",
                     confirmPasswordInput: "",
                     passwordInput: ""};
-        if (name.trim() === "") {
+        if (name.trim() === 0) {
             mess.nameInput = "*Please enter your name"
         }
-        if (email.trim() === "") {
+        if (email.trim() === 0) {
             mess.emailInput = "*Please enter your email"
         } else if (!email.match(mailformat)) {
             mess.emailInput = "*Please enter a valid email address";
           }
-        if (password.trim() === "") {
+        if (password.trim() === 0) {
             mess.passwordInput = "*Please enter your password"
         }
-        if (confirmPassword.trim() === "") {
-            mess.confirmPasswordInput = "*Please enter your password"
+        if (confirmPassword.trim() === 0) {
+            mess.confirmPasswordInput = "*Please enter your confirm password"
         }
 
         if (confirmPassword.trim() !== password.trim()) {
@@ -64,7 +62,7 @@ const Register = () => {
     }
 
     const handleregister = (event: any) => {
-        
+      event.preventDefault();    
     const formIsValid = validateForm();
     if (!formIsValid) return;
     const signupAccountFn = async () => {
@@ -108,7 +106,14 @@ const Register = () => {
     };
     signupAccountFn();
   };
-    
+  
+  const visibilityPasswordToggle = () => {
+    setPasswordVisible(!passwordVisible)
+  }
+
+  const visibilityCfPasswordToggle = () => {
+    setConfirmPasswordVisible(!confirmpasswordVisible)
+  }
     
     return (
         <div className={styles.registerContainer}>
@@ -116,22 +121,21 @@ const Register = () => {
 
             <div>
             <label className={styles.registerLabel} htmlFor="">Your Name</label>
-                <Input
+                <input
                 placeholder="Enter your name"
+                type="text"
+                // value={name}
                 ref={nameInputRef}
-                onChange={(event: any) => setName(event.target.value)}
-                prefix={<UserOutlined className="site-form-item-icon" />}
+               
                 />
                 <p className={styles.registerNote}>{err.nameInput}</p>                 
             </div>
             <div>
                 <label className={styles.registerLabel} htmlFor="">Your Email</label>
-                <Input
-                placeholder="Enter your email"
-                value={email}
-                ref={emailInputRef}
-                onChange={(event: any) => setEmail(event.target.value)}
-                prefix={<UserOutlined className="site-form-item-icon" />}
+                <input
+                type="text"
+                placeholder="Enter your email"               
+                ref={emailInputRef}               
                 />
                 <p className={styles.registerNote}>{err.emailInput}</p>      
             </div>  
@@ -139,28 +143,31 @@ const Register = () => {
                 <label className={styles.registerLabel} htmlFor="">Password</label>
                 <br />
                 
-                <Input.Password
-                    placeholder="Enter password"
-                    value={password}
-                    ref={passwordInputRef}
-                    onChange={(event: any) => setPassword(event.target.value)}
-                    visibilityToggle={{ visible: passwordVisible, onVisibleChange: setPasswordVisible }}
-                />
-                
+                <input
+                placeholder="Enter password"
+                type={passwordVisible === false ? "password" : "text"}              
+                ref={passwordInputRef}
+                >
+                </input>
+                  <EyeInvisibleOutlined 
+                    onClick={visibilityPasswordToggle}
+                    />
                 <p className={styles.registerNote}>{err.passwordInput}</p> 
            </div>
            <div>
            <label className={styles.registerLabel} htmlFor="">Confirm Password</label>
                 <br />
                 
-                <Input.Password
+                <input
                     placeholder="Enter Confirm Password"
-                    value={confirmPassword}
+                    type={confirmpasswordVisible === false ? "password" : "text"}
+                    
                     ref={cfPasswordInputRef}
-                    onChange={(event) => setConfirmPassword(event.target.value)}
-                    visibilityToggle={{ visible: confirmpasswordVisible, onVisibleChange: setConfirmPasswordVisible }}
-                />
-                
+                >
+                  </input>
+                  <EyeInvisibleOutlined 
+                    onClick={visibilityCfPasswordToggle}
+                    />
                 <p className={styles.registerNote}>{err.confirmPasswordInput}</p>
            </div>
            <div className={styles.ButtonCreateAccount}>
