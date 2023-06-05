@@ -62,12 +62,8 @@ const Header = () => {
             </ul>
           </nav>
           <div>
-          <NavLink to="/login">
-          <LoginButton 
-            
-            />
-                </NavLink>
-            
+          
+          <LoginButton />  
             <Link to="/cart" className="nav-button">
               <FontAwesomeIcon icon={["fas","cart-shopping"]} />
               <span> Cart ({totalAmount})</span>

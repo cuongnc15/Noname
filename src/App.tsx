@@ -7,7 +7,7 @@ import CartPage from './page/CartPage';
 import ContactPage from './page/ContactPage';
 import RegisterPage from './page/RegisterPage';
 import AboutPage from './page/AboutPage';
-import LoginPage from './page/LoginPage';
+
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
     <Route path="/contact" element={<ContactPage />} />
     <Route path="/register" element={<RegisterPage />} />
     <Route path="/about" element={<AboutPage />} />
-    <Route path="/login" element={<LoginPage />} />
+    
   </Routes>
   );
 }

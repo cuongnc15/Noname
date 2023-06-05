@@ -12,7 +12,6 @@ import {
 } from "react-router-dom";
 import ContactPage from './page/ContactPage';
 import AboutPage from './page/AboutPage';
-import LoginPage from './page/LoginPage';
 import RegisterPage from './page/RegisterPage';
 import Heading from './components/Heading';
 import ProductPage from './page/ProductPage';
@@ -42,10 +41,6 @@ const router = createBrowserRouter([
   {
     path: "/about",
     element: <AboutPage />,
-  },
-  {
-    path: "/login",
-    element: <LoginPage />,
   },
   {
     path: "/register",

@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import { enqueueSnackbar } from "notistack";
 import { authAction, cartAction } from "../component/store/store";
 
-const Login = () => {
+const Login = (props: any) => {
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -36,7 +36,8 @@ const Login = () => {
     }
 
     const handlLogin = (event: any) => {
-        const formIsValid = validateForm();
+    event.preventDefault();
+    const formIsValid = validateForm();
     if (!formIsValid) return;
     const signinHandlerFn = async () => {
       const response = await fetch(
@@ -88,9 +89,11 @@ const Login = () => {
     <div className={styles.login}>
 
         <div className={styles.loginIconClose}>
-        <NavLink to="/">
-            <CloseOutlined className={styles.IconClose}/>
-        </NavLink>            
+        
+            <CloseOutlined className={styles.IconClose}
+              onClick={props.onHideLoginForm}
+            />
+                 
         </div>
 
         <div className={styles.loginContainer}>
@@ -127,9 +130,13 @@ const Login = () => {
                 >Sign in</button>
            </div>          
            <div>
-                <p>Not a member yet? <NavLink className={styles.registerLink} to="/register">
+                <p>Not a member yet? <span>
+                  <NavLink className={styles.registerLink} 
+                  to="/register"
+                  onClick={props.onHideLoginForm}
+                  >
                   Register
-                </NavLink>
+                </NavLink></span>                 
                 </p>
            </div>
         </div>      
