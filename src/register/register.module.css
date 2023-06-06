@@ -26,3 +26,14 @@
     margin-top: 5px;
     color: red;
 }
+
+.registerInput {
+    padding: 5px 8px;
+    border-radius: 8px;
+    border: 1px solid black;
+    
+}
+
+.registerVisible {
+    margin-left: 2px;
+}

@@ -33,18 +33,18 @@ const Register = () => {
                     nameInput: "",
                     confirmPasswordInput: "",
                     passwordInput: ""};
-        if (name.trim() === 0) {
+        if (name.trim() === "") {
             mess.nameInput = "*Please enter your name"
         }
-        if (email.trim() === 0) {
+        if (email.trim() === "") {
             mess.emailInput = "*Please enter your email"
         } else if (!email.match(mailformat)) {
             mess.emailInput = "*Please enter a valid email address";
           }
-        if (password.trim() === 0) {
+        if (password.trim() === "") {
             mess.passwordInput = "*Please enter your password"
         }
-        if (confirmPassword.trim() === 0) {
+        if (confirmPassword.trim() === "") {
             mess.confirmPasswordInput = "*Please enter your confirm password"
         }
 
@@ -122,6 +122,7 @@ const Register = () => {
             <div>
             <label className={styles.registerLabel} htmlFor="">Your Name</label>
                 <input
+                className={styles.registerInput}
                 placeholder="Enter your name"
                 type="text"
                 // value={name}
@@ -133,6 +134,7 @@ const Register = () => {
             <div>
                 <label className={styles.registerLabel} htmlFor="">Your Email</label>
                 <input
+                className={styles.registerInput}
                 type="text"
                 placeholder="Enter your email"               
                 ref={emailInputRef}               
@@ -144,12 +146,13 @@ const Register = () => {
                 <br />
                 
                 <input
+                className={styles.registerInput}
                 placeholder="Enter password"
                 type={passwordVisible === false ? "password" : "text"}              
                 ref={passwordInputRef}
                 >
-                </input>
-                  <EyeInvisibleOutlined 
+                </input><EyeInvisibleOutlined 
+                  // className={styles.registerVisible}
                     onClick={visibilityPasswordToggle}
                     />
                 <p className={styles.registerNote}>{err.passwordInput}</p> 
@@ -160,6 +163,7 @@ const Register = () => {
                 
                 <input
                     placeholder="Enter Confirm Password"
+                    className={styles.registerInput}
                     type={confirmpasswordVisible === false ? "password" : "text"}
                     
                     ref={cfPasswordInputRef}
